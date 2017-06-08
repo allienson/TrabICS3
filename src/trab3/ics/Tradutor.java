@@ -88,7 +88,7 @@ public class Tradutor {
                     }
 
                     else if(sm.getCommand() == ShortMessage.NOTE_OFF){//caso seja um note off
-                        if(-1 != valor){
+//                        if(-1 != valor){
 
 
                             if(valor!=sm.getData1()){//note off nao corresponde com note on
@@ -96,7 +96,7 @@ public class Tradutor {
                             }
                             off = e.getTick();//pega instante em que acaba a nota
                             melodia.addNota(fazNota(on,off,valor,velocity,tickTime));//adiciona a nota
-                           valor = -1;
+  //                         valor = -1;
                         }
                     }
             }
