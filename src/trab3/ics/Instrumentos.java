@@ -9,7 +9,7 @@ import sintese.*;
 
 public class Instrumentos {
 	
-    InstrumentoAditivo i1,i2,i3,i4; //instrumentos do banco de dados
+    InstrumentoAditivo i1,i2,i3,i4,i5; //instrumentos do banco de dados
 
     public Instrumentos(){
 
@@ -18,9 +18,9 @@ public class Instrumentos {
         UnidadeH[][] unidades; //unidadesH dos intrumentos
 
         //inicializa as variaveis. Cada instrumento pode ter ate 5 harmonicos
-        curvas = new Curva[3][5];
-        envoltorias = new Envoltoria[3][5];
-        unidades = new UnidadeH[3][5];
+        curvas = new Curva[4][5];
+        envoltorias = new Envoltoria[4][5];
+        unidades = new UnidadeH[4][5];
 
     /*****  Instrumento 1  *****/
         //curvas do instrumento 1:
@@ -201,6 +201,82 @@ public class Instrumentos {
         i3.addUnidade(unidades[2][1]);
         i3.addUnidade(unidades[2][2]);
         i3.setGanho(0.7f);
+
+
+    /*****  Instrumento 4  *****/
+        //curvas do instrumento 4:
+        //primeiro harmonico:
+        curvas[3][0] = new Curva(720);
+        curvas[3][0].addPonto(0, 0);
+        curvas[3][0].addPonto(30, 1000);
+        curvas[3][0].addPonto(600,700);
+        curvas[3][0].addPonto(720, 0);
+        //segundo harmonico:
+        curvas[3][1] = new Curva(720);
+        curvas[3][1].addPonto(0, 0);
+        curvas[3][1].addPonto(50, 1000);
+        curvas[3][1].addPonto(590,600);
+        curvas[3][1].addPonto(720, 0);
+        //terceiro harmonico:
+        curvas[3][2] = new Curva(720);
+        curvas[3][2].addPonto(0, 0);
+        curvas[3][2].addPonto(40, 1000);
+        curvas[3][2].addPonto(620,800);
+        curvas[3][2].addPonto(720, 0);
+
+        //envoltorias do intrumento 4:
+        envoltorias[3][0] = new Envoltoria();
+        envoltorias[3][0].setCURVA(curvas[3][0]);
+        envoltorias[3][1] = new Envoltoria();
+        envoltorias[3][1].setCURVA(curvas[3][1]);
+        envoltorias[3][2] = new Envoltoria();
+        envoltorias[3][2].setCURVA(curvas[3][2]);
+
+        //unidadesH do intrumento 4:
+        //unidade 1:
+        unidades[3][0] = new UnidadeH();
+        unidades[3][0].setEnvoltoria(envoltorias[0][0]);
+        unidades[3][0].setH(1);
+        unidades[3][0].setLambda(0.5);
+        unidades[3][0].setFase(0);
+        unidades[3][0].setGanho(1f);
+        //unidade 2:
+        unidades[3][1] = new UnidadeH();
+        unidades[3][1].setEnvoltoria(envoltorias[0][1]);
+        unidades[3][1].setH(2);
+        unidades[3][1].setLambda(0.5);
+        unidades[3][1].setFase(0);
+        unidades[3][1].setGanho(0.7f);
+        //unidade 3:
+        unidades[3][2] = new UnidadeH();
+        unidades[3][2].setEnvoltoria(envoltorias[0][2]);
+        unidades[3][2].setH(3);
+        unidades[3][2].setLambda(0.5);
+        unidades[3][2].setFase(0);
+        unidades[3][2].setGanho(0.75f);
+        //unidade 4:
+        unidades[3][3] = new UnidadeH();
+        unidades[3][3].setEnvoltoria(envoltorias[0][2]);
+        unidades[3][3].setH(4);
+        unidades[3][3].setLambda(0.5);
+        unidades[3][3].setFase(0);
+        unidades[3][3].setGanho(0.75f);
+        //unidade 5:
+        unidades[3][4] = new UnidadeH();
+        unidades[3][4].setEnvoltoria(envoltorias[0][2]);
+        unidades[3][4].setH(5);
+        unidades[3][4].setLambda(0.5);
+        unidades[3][4].setFase(0);
+        unidades[3][4].setGanho(0.75f);
+
+        //inicializa instrumento:
+        i4 = new InstrumentoAditivo();
+        i4.addUnidade(unidades[3][0]);
+        i4.addUnidade(unidades[3][1]);
+        i4.addUnidade(unidades[3][2]);
+        i4.setGanho(0.7f);
+
+
 
 
     /*** prato ortogonal  ***/    
@@ -679,7 +755,7 @@ public class Instrumentos {
         Ortog.addUnidade(uhOrtog29); 
         Ortog.setGanho(0.3f);	
 
-        i4 = Ortog;
+        i5 = Ortog;
             }
     }
 
