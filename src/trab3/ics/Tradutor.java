@@ -60,7 +60,7 @@ public class Tradutor {
                     ShortMessage sm = (ShortMessage) e.getMessage();
 
                     if(sm.getChannel()==10){//o canal 10 e o drum pad
-                            /* faz voz da bateria */
+                            /* implementar aqui a voz da bateria */
                     }
                     if(sm.getCommand() == ShortMessage.PROGRAM_CHANGE){
                         ins = sm.getData1();
@@ -88,12 +88,16 @@ public class Tradutor {
                     }
 
                     else if(sm.getCommand() == ShortMessage.NOTE_OFF){//caso seja um note off
+                        if(-1 != valor){
 
-                        if(valor!=sm.getData1()){//note off nao corresponde com note on
 
+                            if(valor!=sm.getData1()){//note off nao corresponde com note on
+
+                            }
+                            off = e.getTick();//pega instante em que acaba a nota
+                            melodia.addNota(fazNota(on,off,valor,velocity,tickTime));//adiciona a nota
+                           valor = -1;
                         }
-                        off = e.getTick();//pega instante em que acaba a nota
-                        melodia.addNota(fazNota(on,off,valor,velocity,tickTime));//adiciona a nota
                     }
             }
             i++;
