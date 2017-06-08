@@ -113,14 +113,16 @@ public class Tradutor {
     public InstrumentoAditivo tabelaDeInstrumentos (int instrumentoMidi){
 /** para cada instumento MIDI seleciona um instrumento aditivo  **/
         InstrumentoAditivo ins = new InstrumentoAditivo();
-        if (instrumentoMidi < 32)
+        if (instrumentoMidi < 25)
             ins = instrumentos.i1;
-        else if ((instrumentoMidi >= 32)&&(instrumentoMidi < 64))
+        else if ((instrumentoMidi >= 25)&&(instrumentoMidi < 50))
             ins = instrumentos.i2;
-        else if ((instrumentoMidi >= 64)&&(instrumentoMidi < 96))
+        else if ((instrumentoMidi >= 50)&&(instrumentoMidi <75))
             ins = instrumentos.i3;
-        else if (instrumentoMidi >= 96)
+        else if ((instrumentoMidi >= 75)&&(instrumentoMidi <100))
             ins = instrumentos.i4;
+        else if (instrumentoMidi >= 100)
+            ins = instrumentos.i5;
         return ins;
     }
 
